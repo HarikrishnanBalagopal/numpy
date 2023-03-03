@@ -64,6 +64,12 @@ jobs:
           source .venv-pyodide/bin/activate
           pip install dist/*.whl
           pip install -r test_requirements.txt
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist-for-wasm
+          path: |
+            dist
       - name: Test
         run: |
           source .venv-pyodide/bin/activate
